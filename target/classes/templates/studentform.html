@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>IFTS N5 - Plataforma de Gestión de Alumnos</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+<link href="#" th:href="@{/css/menu.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="main-left">
+		<a href="#" th:href="@{/main}">
+			<button class="btn btn-xs btn-primary" type="submit">
+				<span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home
+			</button>
+		</a>
+	</div>
+	<div class="main-username-div">
+		<div class="main-logout-btn main-right">
+			<form th:action="@{/logout}" method="POST">
+				<button class="btn btn-xs btn-primary" type="submit">
+					<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout
+				</button>
+			</form>
+		</div>
+		<span class="main-right" th:text="${username}"></span>
+	</div>
+	<div class="main-title">Plataforma de Gestión de Alumnos</div>
+	<div class="main-sub-title">Formulario de Alumno</div>
+	<div class="container">
+		<form action="#" th:action="@{/students/addstudent}"
+			th:object="${studentModel}" method="post">
+			<input type="hidden" th:field="*{id}"></input> <strong>Nombre:</strong>
+			<input type="text" class="form-control" th:field="*{firstname}"
+				th:value="${firstname}"></input> <strong>Apellido:</strong>
+			<input type="text" class="form-control" th:field="*{lastname}"
+				th:value="${lastname}"></input> <strong>Tipo de Documento:</strong>
+			<input type="text" class="form-control" th:field="*{typeDocument}"
+				th:value="${type_document}"></input> <strong>Numero de Documento:</strong>
+			<input type="number" class="form-control" th:field="*{documentNumber}"
+				th:value="${document_number}"></input> <strong>Telefono:</strong>
+			<input type="text" class="form-control" th:field="*{telephone}"
+				th:value="${telephone}"></input> <strong>Celular:</strong>
+			<input type="text" class="form-control" th:field="*{celphone}"
+				th:value="${celphone}"></input> <br />
+			<button class="btn btn-lg btn-primary btn-block" type="submit">
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				Aceptar
+			</button>
+		</form>
+		<a href="#" th:href="@{/students/cancel}">
+			<button class="btn btn-lg btn-primary btn-block" type="submit">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				Cancelar
+			</button>
+		</a>
+
+	</div>
+</body>
+<footer>Designed by: LBK (Limont-Brynkier-Klippmüller)</footer>
+</html>
