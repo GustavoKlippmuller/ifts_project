@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>IFTS N5 - Plataforma de Gestión de Alumnos</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+<link href="#" th:href="@{/css/menu.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="main-left">
+		<a href="#" th:href="@{/main}">
+			<button class="btn btn-xs btn-primary" type="submit">
+				<span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home
+			</button>
+		</a>
+	</div>
+	<div class="main-username-div">
+		<div class="main-logout-btn main-right">
+			<form th:action="@{/logout}" method="POST">
+				<button class="btn btn-xs btn-primary" type="submit">
+					<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout
+				</button>
+			</form>
+		</div>
+		<span class="main-right" th:text="${username}"></span>
+	</div>
+	<div class="main-title">Plataforma de Gestión de Alumnos</div>
+	<div class="main-sub-title">Formulario de Carreras</div>
+	<div class="container">
+		<form action="#" th:action="@{/careers/addcareer}"
+			th:object="${careerModel}" method="post">
+			<input type="hidden" th:field="*{id}"></input> <strong>Carrera:</strong>
+			<input type="text" class="form-control" th:field="*{career_name}"
+				th:value="${career_name}"></input> <br /> <strong>Titulo:</strong>
+			<input type="text" class="form-control" th:field="*{career_title}"
+				th:value="${career_title}"></input> <br /> <strong>Especialidad:</strong>
+			<input type="text" class="form-control" th:field="*{speciality}"
+				th:value="${speciality}"></input> <br /> <strong>Resolución:</strong>
+			<input type="text" class="form-control" th:field="*{resolution}"
+				th:value="${resolution}"></input> <br /> <strong>Estado:</strong> <select
+				name="status" class="form-control" th:field="*{status}"
+				th:value="${status}">
+				<option selected value="1">Activa</option>
+				<option value="0">Inactiva</option>
+			</select> <br />
+			<button class="btn btn-lg btn-primary btn-block" type="submit">
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				Aceptar
+			</button>
+		</form>
+		<a href="#" th:href="@{/careers/cancel}">
+			<button class="btn btn-lg btn-primary btn-block" type="submit">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				Cancelar
+			</button>
+		</a>
+
+	</div>
+</body>
+<footer>Designed by: LBK (Limont-Brynkier-Klippmüller)</footer>
+</html>

@@ -1,0 +1,26 @@
+spring:
+   thymeleaf:
+      cache: true
+      check-template: true
+      check-template-location: true
+      content-type: text/html
+      enabled: true
+      encoding: UTF-8
+      modde: HTML5
+      prefix: classpath:/templates/
+      sufix: .html
+   datasource:
+      url: jdbc:mysql://localhost:3306/db_ifts_base_de_datos?useSSL=false
+      username: root
+   jpa:
+      show-sql: true
+      hibernate:
+         ddl-auto: update
+         naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      properties:
+         hibernate:
+            dialect: org.hibernate.dialect.MySQL5Dialect
+server:
+   error:
+      whitelabel:
+         enabled: false
