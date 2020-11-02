@@ -21,10 +21,10 @@
 			<br />
 			<form action="#" th:action="@{/contacts/addcontact}" th:object="${contactModel}" method="post">
 				<input type="hidden" th:field="*{id}"></input>
-				Nombres: <input type="text" class="form-control" th:field="*{firstname}" th:value="${firstname}"></input> <br /> 
-				Apellidos: <input type="text" class="form-control" th:field="*{lastname}" th:value="${lastname}"></input> <br />
-				Telefono: <input type="text" class="form-control" th:field="*{telephone}" th:value="${telephone}"></input> <br /> 
-				Ciudad: <input type="text" class="form-control" th:field="*{city}" th:value="${city}"></input> <br /> <br />
+				Nombres: <input type="text" class="form-control" th:field="*{firstname}" th:value="${firstname}"></input> 
+				Apellidos: <input type="text" class="form-control" th:field="*{lastname}" th:value="${lastname}"></input> 
+				Telefono: <input type="text" class="form-control" th:field="*{telephone}" th:value="${telephone}"></input> 
+				Ciudad: <input type="text" class="form-control" th:field="*{city}" th:value="${city}"></input> <br /> 
 				<button class="btn btn-lg btn-primary btn-block" type="submit">
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 					Aceptar

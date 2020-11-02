@@ -47,6 +47,7 @@ public class CareersController {
 		if( id!=0) careerModel = careerService.findCareerByIdModel(id);
 		System.out.println(careerModel.getStudyPlanModels().toString());
 		model.addAttribute("careerModel", careerModel);
+		model.addAttribute("studyPlans", careerModel.getStudyPlanModels());
 		return ViewConstant.CAREER_FORM;
 	}
 

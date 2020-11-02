@@ -19,11 +19,11 @@ public class StudyPlanModel {
 		super();
 	}
 
-	public StudyPlanModel(int id, /*int idCareer,*/String studyPlanName, String duration, Date startDate,
+	public StudyPlanModel(int id, int idCareer , String studyPlanName, String duration, Date startDate,
 			int quantityMaterials, boolean status, String username, Date lastUpdate) {
 		super();
 		this.id = id;
-		//this.idCareer = idCareer;
+		this.idCareer = idCareer;
 		this.studyPlanName = studyPlanName;
 		this.duration = duration;
 		this.startDate = startDate;
@@ -41,15 +41,7 @@ public class StudyPlanModel {
 	public void setId(int id) {
 		this.id = id;
 	}
-/*
-	public int getIdCareer() {
-		return idCareer;
-	}
 
-	public void setIdCareer(int idCareer) {
-		this.idCareer = idCareer;
-	}
-*/
 	public String getStudyPlanName() {
 		return studyPlanName;
 	}
@@ -113,7 +105,7 @@ public class StudyPlanModel {
 
 	@Override
 	public String toString() {
-		return "StudyPlanModel [id=" + id + ", idCareer=" + idCareer + ", studyPlanName=" + studyPlanName
+		return "StudyPlanModel by Gustavo[id=" + id + ", idCareer=" + idCareer + ", studyPlanName=" + studyPlanName
 				+ ", duration=" + duration + ", startDate=" + startDate + ", quantityMaterials=" + quantityMaterials
 				+ ", status=" + status + ", username=" + username + ", lastUpdate=" + lastUpdate + "]";
 	}

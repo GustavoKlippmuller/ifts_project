@@ -32,21 +32,18 @@
 		<form action="#" th:action="@{/courses/addcourse}"
 			th:object="${courseModel}" method="post">
 			<input type="hidden" th:field="*{id}"></input> <strong>Materia:</strong>
-			<input type="text" class="form-control" th:field="*{course_name}"
-				th:value="${course_name}"></input> <br /> <strong>Duracion (Mes):</strong>
-			<input type="number" class="form-control" th:field="*{duration}"
-				th:value="${duration}"></input> <br /> <strong>Carga Horaria (Semanal):</strong>
-			<input type="number" class="form-control" th:field="*{workload}"
-				th:value="${workload}"></input> <br />
+			<input type="text" class="form-control" th:field="*{course_name}" th:value="${course_name}"></input>
+			<strong>Duracion (Mes):</strong> 
+			<input type="number" class="form-control" th:field="*{duration}" th:value="${duration}"></input>
+			<strong>Carga Horaria (Semanal):</strong>
+			<input type="number" class="form-control" th:field="*{workload}" th:value="${workload}"></input> <br/>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">
-				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				Aceptar
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Aceptar
 			</button>
 		</form>
 		<a href="#" th:href="@{/courses/cancel}">
 			<button class="btn btn-lg btn-primary btn-block" type="submit">
-				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-				Cancelar
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancelar
 			</button>
 		</a>
 
