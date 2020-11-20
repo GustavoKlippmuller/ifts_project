@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import lbk.group.component.StudyPlanConverter;
 import lbk.group.entity.StudyPlan;
 import lbk.group.model.StudyPlanModel;
+import lbk.group.repository.StudyPlanDSLRepo;
 import lbk.group.repository.StudyPlanRepository;
 import lbk.group.service.StudyPlanService;
 
@@ -21,6 +22,10 @@ public class StudyPlanServiceImpl implements StudyPlanService {
 	@Autowired
 	@Qualifier("studyPlanRepository")
 	private StudyPlanRepository studyPlanRepository;
+
+	@Autowired
+	@Qualifier("studyPlanDSLRepo")
+	private StudyPlanDSLRepo studyPlanDSLRepo;
 
 	@Autowired
 	@Qualifier("studyPlanConverter")
@@ -55,6 +60,15 @@ public class StudyPlanServiceImpl implements StudyPlanService {
 	@Override
 	public StudyPlanModel findStudyPlanByIdModel(int id) {
 		return studyPlanConverter.convertEntity2Model(findStudyPlanById(id));
+	}
+	
+	@Override	
+	public List<StudyPlanModel> listPlansByCareer(int idCareer){
+		List<StudyPlanModel> list = new ArrayList<>();
+		for (StudyPlan entity : studyPlanDSLRepo.listByIdCareer(idCareer)) {
+			list.add(studyPlanConverter.convertEntity2Model(entity));
+		}
+		return list;
 	}
 
 }

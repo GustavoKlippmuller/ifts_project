@@ -16,5 +16,7 @@ public interface StudyPlanService {
 	public abstract void removeStudyPlan(int id);
 
 	public abstract StudyPlanModel findStudyPlanByIdModel(int id);
+	
+	public abstract List<StudyPlanModel> listPlansByCareer(int idCareer);
 
 }

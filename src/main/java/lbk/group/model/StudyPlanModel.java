@@ -1,6 +1,9 @@
 package lbk.group.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class StudyPlanModel {
 
@@ -8,18 +11,21 @@ public class StudyPlanModel {
 	private int idCareer;
 	private String studyPlanName;
 	private String duration;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date startDate;
 	private int quantityMaterials;
 	private String estado;
 	private boolean status;
 	private String username;
 	private Date lastUpdate;
+	private String stringDate;
+	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	public StudyPlanModel() {
 		super();
 	}
 
-	public StudyPlanModel(int id, int idCareer , String studyPlanName, String duration, Date startDate,
+	public StudyPlanModel(int id, int idCareer, String studyPlanName, String duration, Date startDate,
 			int quantityMaterials, boolean status, String username, Date lastUpdate) {
 		super();
 		this.id = id;
@@ -27,6 +33,7 @@ public class StudyPlanModel {
 		this.studyPlanName = studyPlanName;
 		this.duration = duration;
 		this.startDate = startDate;
+		this.stringDate = sdf.format(startDate);
 		this.quantityMaterials = quantityMaterials;
 		this.status = status;
 		this.username = username;
@@ -40,6 +47,14 @@ public class StudyPlanModel {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getIdCareer() {
+		return idCareer;
+	}
+
+	public void setIdCareer(int idCareer) {
+		this.idCareer = idCareer;
 	}
 
 	public String getStudyPlanName() {
@@ -64,6 +79,7 @@ public class StudyPlanModel {
 
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
+		this.stringDate = sdf.format(startDate);
 	}
 
 	public int getQuantityMaterials() {
@@ -101,6 +117,10 @@ public class StudyPlanModel {
 
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+
+	public String getStringDate() {
+		return stringDate;
 	}
 
 	@Override

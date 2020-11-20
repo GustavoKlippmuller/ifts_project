@@ -1,13 +1,11 @@
 package lbk.group.entity;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,8 +26,6 @@ public class Career {
 	private String speciality;
 	@Column(name = "resolution", length = 10)
 	private String resolution;
-	@OneToMany(mappedBy = "career")
-	private List<StudyPlan> studyPlans;
 	@Column(name = "status")
 	private boolean status;
 	@Column(name = "username", nullable = false, length = 45)
@@ -42,15 +38,14 @@ public class Career {
 		super();
 	}
 
-	public Career(int id, String career_name, String career_title, String speciality, String resolution,
-			List<StudyPlan> studyPlans, boolean status, String username, Date last_update) {
+	public Career(int id, String career_name, String career_title, String speciality, String resolution, boolean status,
+			String username, Date last_update) {
 		super();
 		this.id = id;
 		this.career_name = career_name;
 		this.career_title = career_title;
 		this.speciality = speciality;
 		this.resolution = resolution;
-		this.studyPlans = studyPlans;
 		this.status = status;
 		this.username = username;
 		this.last_update = last_update;
@@ -120,19 +115,11 @@ public class Career {
 		this.last_update = last_update;
 	}
 
-	public List<StudyPlan> getStudyPlans() {
-		return studyPlans;
-	}
-
-	public void setStudyPlans(List<StudyPlan> studyPlans) {
-		this.studyPlans = studyPlans;
-	}
-
 	@Override
 	public String toString() {
 		return "Career [id=" + id + ", career_name=" + career_name + ", career_title=" + career_title + ", speciality="
-				+ speciality + ", resolution=" + resolution + ", studyPlans=" + studyPlans.toString() + ", status="
-				+ status + ", username=" + username + ", last_update=" + last_update + "]";
+				+ speciality + ", resolution=" + resolution + ", status=" + status + ", username=" + username
+				+ ", last_update=" + last_update + "]";
 	}
 
 }

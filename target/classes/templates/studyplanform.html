@@ -29,34 +29,32 @@
 	<div class="main-title">Plataforma de Gestión de Alumnos</div>
 	<div class="main-sub-title">Formulario de Plan de Estudio</div>
 	<div class="container">
-		<form action="#" th:action="@{/plans/addplan}"
+		<form action="#" th:action="@{/studyplans/addstudyplan}"
 			th:object="${planModel}" method="post">
-			<input type="hidden" th:field="*{id}"></input> <strong>Carrera:</strong>
-			<input type="text" class="form-control" th:field="*{career_name}"
-				th:value="${career_name}"></input> <br /> <strong>Titulo:</strong>
-			<input type="text" class="form-control" th:field="*{career_title}"
-				th:value="${career_title}"></input> <br /> <strong>Especialidad:</strong>
-			<input type="text" class="form-control" th:field="*{speciality}"
-				th:value="${speciality}"></input> <br /> <strong>Resolución:</strong>
-			<input type="text" class="form-control" th:field="*{resolution}"
-				th:value="${resolution}"></input> <br /> <strong>Estado:</strong> <select
-				name="status" class="form-control" th:field="*{status}"
-				th:value="${status}">
+			<input type="hidden" th:field="*{id}"></input> 
+			<input type="hidden" th:field="*{idCareer}"></input> 
+			<strong>Plan de Estudio:</strong>
+			<input type="text" class="form-control" th:field="*{studyPlanName}" th:value="${studyPlanName}"></input> 
+			<strong>Duración:</strong>
+			<input type="text" class="form-control" th:field="*{duration}" th:value="${duration}"></input><br/>
+			<strong>Cantidad de Materias:</strong>
+			<input type="text" class="form-control" th:field="*{quantityMaterials}" th:value="${quantityMaterials}"></input><br/>
+			<strong>Fecha de Inicio:</strong>
+			<input type="text" class="form-control" th:field="*{startDate}" th:value="${startDate}"></input><br/>
+			<strong>Estado:</strong>
+			<select name="status" class="form-control" th:field="*{status}" th:value="${status}">
 				<option selected value="1">Activa</option>
 				<option value="0">Inactiva</option>
-			</select> <br />
+			</select><br/>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">
-				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				Aceptar
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Aceptar
 			</button>
 		</form>
-		<a href="#" th:href="@{/careers/cancel}">
+		<a href="#" th:href="@{/careers/careerform?id=__${planModel.idCareer}__}">
 			<button class="btn btn-lg btn-primary btn-block" type="submit">
-				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-				Cancelar
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancelar
 			</button>
 		</a>
-
 	</div>
 </body>
 <footer>Designed by: LBK (Limont-Brynkier-Klippmüller)</footer>

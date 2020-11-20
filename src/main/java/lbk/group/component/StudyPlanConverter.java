@@ -15,13 +15,13 @@ public class StudyPlanConverter {
 	private CareerConverter careerConverter;
 
 	public StudyPlan convertModel2Entity(StudyPlanModel model) {
-		return new StudyPlan(model.getId(), null, model.getStudyPlanName(), model.getDuration(),
-				model.getStartDate(), model.getQuantityMaterials(), model.isStatus(), model.getUsername(),
+		return new StudyPlan(model.getId(), model.getIdCareer(), model.getStudyPlanName(), model.getDuration(), 
+				model.getStartDate(), model.getQuantityMaterials(), model.isStatus(), model.getUsername(), 
 				model.getLastUpdate());
 	}
 
 	public StudyPlanModel convertEntity2Model(StudyPlan entity) {
-		return new StudyPlanModel(entity.getId(),entity.getCareer().getId(), entity.getStudyPlanName(), entity.getDuration(),
+		return new StudyPlanModel(entity.getId(),entity.getIdCareer(), entity.getStudyPlanName(), entity.getDuration(),
 				entity.getStartDate(), entity.getQuantityMaterials(), entity.isStatus(), entity.getUsername(),
 				entity.getLastUpdate());
 	}

@@ -1,7 +1,6 @@
 package lbk.group.model;
 
 import java.util.Date;
-import java.util.List;
 
 public class CareerModel {
 
@@ -10,7 +9,6 @@ public class CareerModel {
 	private String career_title;
 	private String speciality;
 	private String resolution;
-	private List<StudyPlanModel> studyPlanModels;
 	private boolean status;
 	private String estado;
 	private String username;
@@ -21,14 +19,13 @@ public class CareerModel {
 	}
 
 	public CareerModel(int id, String career_name, String career_title, String speciality, String resolution,
-			List<StudyPlanModel> studyPlanModels, boolean status, String username, Date last_upDate) {
+			 boolean status, String username, Date last_upDate) {
 		super();
 		this.id = id;
 		this.career_name = career_name;
 		this.career_title = career_title;
 		this.speciality = speciality;
 		this.resolution = resolution;
-		this.studyPlanModels = studyPlanModels;
 		this.status = status;
 		this.username = username;
 		this.last_upDate = last_upDate;
@@ -75,14 +72,6 @@ public class CareerModel {
 		this.resolution = resolution;
 	}
 
-	public List<StudyPlanModel> getStudyPlanModels() {
-		return studyPlanModels;
-	}
-
-	public void setStudyPlanModels(List<StudyPlanModel> studyPlanModels) {
-		this.studyPlanModels = studyPlanModels;
-	}
-
 	public boolean isStatus() {
 		return status;
 	}
@@ -120,7 +109,7 @@ public class CareerModel {
 	@Override
 	public String toString() {
 		return "CareerModel [id=" + id + ", career_name=" + career_name + ", career_title=" + career_title
-				+ ", speciality=" + speciality + ", resolution=" + resolution + ", studyPlanModels=" + studyPlanModels.toString()
+				+ ", speciality=" + speciality + ", resolution=" + resolution  
 				+ ", status=" + status + ", estado=" + estado + ", username=" + username + ", last_upDate="
 				+ last_upDate + "]";
 	}

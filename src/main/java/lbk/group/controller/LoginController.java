@@ -13,7 +13,7 @@ public class LoginController {
 
 	private static final Log LOG = LogFactory.getLog(LoginController.class);
 
-	@GetMapping({ "/login", "/" })
+	@GetMapping({ "/", "/login" })
 	public String showLoginForm(Model model, @RequestParam(name = "error", required = false) String error,
 			@RequestParam(name = "logout", required = false) String logout) {
 		LOG.info("METHOD: showLoginForm() -- PARAMS: error=" + error + " logout=" + logout);
@@ -27,7 +27,6 @@ public class LoginController {
 	public String loginCheck() {
 		LOG.info("METHOD: loginCheck()");
 		LOG.info("Retorning to Contacts view");
-		//return "redirect:/contacts/listcontacts";
 		return "redirect:/main";
 	}
 

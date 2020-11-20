@@ -2,13 +2,10 @@ package lbk.group.entity;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,9 +18,8 @@ public class StudyPlan {
 	@GeneratedValue
 	@Column(name = "id")
 	private int id;
-	@ManyToOne(optional = false, cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "id_career", referencedColumnName = "id")
-	private Career career;
+	@Column(name = "id_career")	
+	private int idCareer;
 	@Column(name = "study_plan_name", nullable = false, length = 30)
 	private String studyPlanName;
 	@Column(name = "duration", length = 6)
@@ -45,11 +41,11 @@ public class StudyPlan {
 		super();
 	}
 
-	public StudyPlan(int id, Career career, String studyPlanName, String duration, Date startDate,
+	public StudyPlan(int id, int idCareer, String studyPlanName, String duration, Date startDate,
 			int quantityMaterials, boolean status, String username, Date lastUpdate) {
 		super();
 		this.id = id;
-		this.career = career;
+		this.idCareer = idCareer;
 		this.studyPlanName = studyPlanName;
 		this.duration = duration;
 		this.startDate = startDate;
@@ -69,13 +65,6 @@ public class StudyPlan {
 		this.id = id;
 	}
 
-	public Career getCareer() {
-		return career;
-	}
-
-	public void setCareer(Career career) {
-		this.career = career;
-	}
 
 	public String getStudyPlanName() {
 		return studyPlanName;
@@ -132,10 +121,18 @@ public class StudyPlan {
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
+	
+	public int getIdCareer() {
+		return idCareer;
+	}
+
+	public void setIdCareer(int idCareer) {
+		this.idCareer = idCareer;
+	}
 
 	@Override
 	public String toString() {
-		return "StudyPlan [id=" + id + ", career=" + career + ", studyPlanName=" + studyPlanName + ", duration="
+		return "StudyPlan [id=" + id + ", idCareer=" + idCareer + ", studyPlanName=" + studyPlanName + ", duration="
 				+ duration + ", startDate=" + startDate + ", quantityMaterials=" + quantityMaterials + ", status="
 				+ status + ", username=" + username + ", lastUpdate=" + lastUpdate + "]";
 	}

@@ -12,4 +12,5 @@ public class ViewConstant {
 	public static final String COURSE_FORM = "courseform";
 	public static final String STUDENTS = "students";
 	public static final String STUDENT_FORM = "studentform";
+	public static final String STUDYPLAN_FORM = "studyplanform";
 }
