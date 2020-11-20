@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import lbk.group.component.StudentConverter;
 import lbk.group.entity.Student;
 import lbk.group.model.StudentModel;
+import lbk.group.repository.StudentDSLRepo;
 import lbk.group.repository.StudentRepository;
 import lbk.group.service.StudentService;
 
@@ -23,9 +24,13 @@ public class StudentServiceImpl implements StudentService {
 	private StudentRepository studentRepository;
 	
 	@Autowired
+	@Qualifier("studentDSLRepo")
+	private StudentDSLRepo studentDSLRepo;
+	
+	@Autowired
 	@Qualifier("studentConverter")
 	private StudentConverter studentConverter;
-	
+
 	@Override
 	public StudentModel addStudent(StudentModel studentModel) {
 		Student entity = studentRepository.save(studentConverter.convertModel2Entity(studentModel));
@@ -55,5 +60,13 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public StudentModel findStudentByIdModel(int id) {
 		return studentConverter.convertEntity2Model(findStudentById(id));
+	}
+
+	@Override
+	public List<StudentModel> listStudentByLastName(String lastname) {
+		List<StudentModel> list = new ArrayList<>();
+		for(Student student : studentDSLRepo.listByLastName(lastname))
+			list.add(studentConverter.convertEntity2Model(student));			
+		return list;
 	}
 }

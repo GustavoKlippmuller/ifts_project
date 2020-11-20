@@ -29,21 +29,20 @@
 	<div class="main-title">Plataforma de Gestión de Alumnos</div>
 	<div class="main-sub-title">Formulario de Alumno</div>
 	<div class="container">
-		<form action="#" th:action="@{/students/addstudent}"
-			th:object="${studentModel}" method="post">
+		<form action="#" th:action="@{/students/addstudent}" th:object="${studentModel}" method="post">
 			<input type="hidden" th:field="*{id}"></input> <strong>Nombre:</strong>
-			<input type="text" class="form-control" th:field="*{firstname}"
-				th:value="${firstname}"></input> <strong>Apellido:</strong>
-			<input type="text" class="form-control" th:field="*{lastname}"
-				th:value="${lastname}"></input> <strong>Tipo de Documento:</strong>
-			<input type="text" class="form-control" th:field="*{typeDocument}"
-				th:value="${type_document}"></input> <strong>Numero de Documento:</strong>
-			<input type="number" class="form-control" th:field="*{documentNumber}"
-				th:value="${document_number}"></input> <strong>Telefono:</strong>
-			<input type="text" class="form-control" th:field="*{telephone}"
-				th:value="${telephone}"></input> <strong>Celular:</strong>
-			<input type="text" class="form-control" th:field="*{celphone}"
-				th:value="${celphone}"></input> <br />
+			<input type="text" class="form-control" th:field="*{firstname}"	th:value="${firstname}"></input> 
+			<strong>Apellido:</strong>
+			<input type="text" class="form-control" th:field="*{lastname}" th:value="${lastname}"></input> 
+			<strong>Tipo de Documento:</strong>
+			<input type="text" class="form-control" th:field="*{typeDocument}" th:value="${type_document}"></input> 
+			<strong>Numero de Documento:</strong>
+			<input type="number" class="form-control" th:field="*{documentNumber}" th:value="${document_number}"></input> 
+			<strong>Telefono:</strong>
+			<input type="text" class="form-control" th:field="*{telephone}" th:value="${telephone}"></input> 
+			<strong>Celular:</strong>
+			<input type="text" class="form-control" th:field="*{celphone}" th:value="${celphone}"></input> 
+			<br />
 			<button class="btn btn-lg btn-primary btn-block" type="submit">
 				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 				Aceptar

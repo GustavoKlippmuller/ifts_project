@@ -38,6 +38,7 @@ public class StudentsController {
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		modelAndView.addObject("username", userService.getFullName(user.getUsername()));
 		modelAndView.addObject("students",studentService.listStudent());
+		modelAndView.addObject("student", new StudentModel());
 		return modelAndView;
 	}
 	
@@ -64,4 +65,19 @@ public class StudentsController {
 	public String cancel() {
 		return "redirect:/students/liststudents";
 	}
+	
+	@GetMapping("/buscar")
+	private ModelAndView findStudent(@ModelAttribute(name = "student") StudentModel student, Model model) {
+		ModelAndView modelAndView = new ModelAndView(ViewConstant.STUDENTS);
+		System.out.println(student.toString());
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		modelAndView.addObject("username", userService.getFullName(user.getUsername()));
+
+		if(student.getLastname().isEmpty())
+			modelAndView.addObject("students",studentService.listStudent());
+		else
+			modelAndView.addObject("students",studentService.listStudentByLastName(student.getLastname()));
+		return modelAndView;
+	}
+
 }

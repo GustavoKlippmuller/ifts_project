@@ -15,4 +15,6 @@ public interface StudentService {
 	public abstract void removeStudent(int id);
 
 	public abstract StudentModel findStudentByIdModel(int id);
+	
+	public abstract List<StudentModel> listStudentByLastName(String lastname);
 }
